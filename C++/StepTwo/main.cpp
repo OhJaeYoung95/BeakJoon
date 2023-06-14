@@ -73,8 +73,69 @@ void _2884()
 	cout << H << " " << M;
 }
 
+void _2525()
+{
+	int H = 0, M = 0, countTime = 0;
+	cin >> H >> M;
+	cin >> countTime;
+	int calH = countTime / 60;
+	int calM = countTime % 60;
+
+	if (M + calM >= 60)
+	{
+		if (H + 1 + calH > 23)
+		{
+			H = (H + 1 + calH) % 24;
+		}
+		else
+		{
+			H = H + 1 + calH;
+		}
+		M = M + calM - 60;
+	}
+	else
+	{
+		if (H + calH > 23)
+		{
+			H = (H + calH) % 24;
+		}
+		else
+		{
+			H += calH;
+		}
+		M += calM;
+	}
+	cout << H << " " << M;
+}
+
+void _2480()
+{
+	int dice1 = 0, dice2 = 0, dice3 = 0, prize = 0;
+
+	cin >> dice1 >> dice2 >> dice3;
+
+	if (dice1 == dice2 && dice2 == dice3)
+		prize = 10000 + dice1 * 1000;
+	else if (dice1 == dice2 || dice2 == dice3 || dice1 == dice3)
+	{
+		if (dice1 == dice2)
+			prize = 1000 + dice1 * 100;
+		else if (dice2 == dice3)
+			prize = 1000 + dice2 * 100;
+		else if (dice1 == dice3)
+			prize = 1000 + dice1 * 100;
+	}
+	else
+	{
+		prize = 100 * (dice1 > dice2 ? (dice1 > dice3 ? dice1 : dice3) : dice2 > dice3 ? dice2 : dice3);
+	}
+
+	cout << prize;
+}
+
+
 int main()
 {
-	_2884();
+	_2480();
 	return 0;
 }
