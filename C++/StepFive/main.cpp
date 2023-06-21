@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 void _27866()
@@ -118,13 +119,75 @@ void _10809_2()
 		cout << (int)s.find(alphabet[i]); //s에서 알파벳이 있으면 해당 알파벳의 위치 출력
 		cout << " ";
 	}
+}
 
+void _2675()
+{
+	string s;
+	int r, t;
+
+	cin >> t;
+	for (int i = 0; i < t; i++)
+	{
+		cin >> r;
+		cin >> s;
+		for (int j = 0; j < s.length(); j++)
+		{
+			for (int k = 0; k < r; k++)
+			{
+				cout << s.at(j);
+				// s[j];
+			}
+		}
+		cout << "\n";
+	}
+}
+
+void _1152()
+{
+	string s;
+	int i = 0;
+	getline(cin, s);
+
+	if (s.empty())
+	{
+		cout << "0";
+	}
+	int cnt = 1;
+
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] == ' ')
+			cnt++;
+	}
+	if (s[0] == ' ')
+		cnt--;
+	if (s[s.length() - 1] == ' ')
+		cnt--;
+	cout << cnt;
+}
+
+void _2908()
+{
+	string num1;
+	string num2;
+
+	cin >> num1 >> num2;
+	reverse(num1.begin(), num1.end());
+	reverse(num2.begin(), num2.end());
+
+	int first = stoi(num1);
+	int second = stoi(num2);
+
+	if (num1 > num2)
+		cout << num1;
+	else
+		cout << num2;
 }
 
 
 int main()
 {
-
-
+	_2908();
 	return 0;
 }

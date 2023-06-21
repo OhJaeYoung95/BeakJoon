@@ -255,9 +255,6 @@ void _1546()
 	cout << fixed;
 	cout.precision(6);
 	cout << sum;
-
-
-	cout << sum;
 }
 
 int main()
