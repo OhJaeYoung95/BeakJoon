@@ -185,9 +185,77 @@ void _2908()
 		cout << num2;
 }
 
+void _5622()
+{
+	string s;
+	cin >> s;
+	int second = 0;
+	for (int i = 0; i < s.length(); i++)
+	{
+		second += 2;
+		switch (s[i])
+		{
+		case 'A':
+		case 'B':
+		case 'C':
+			second += 1;
+			break;
+		case'D':
+		case'E':
+		case'F':
+			second += 2;
+			break;
+		case'G':
+		case'H':
+		case'I':
+			second += 3;
+			break;
+		case'J':
+		case'K':
+		case'L':
+			second += 4;
+			break;
+		case'M':
+		case'N':
+		case'O':
+			second += 5;
+			break;
+		case'P':
+		case'Q':
+		case'R':
+		case'S':
+			second += 6;
+			break;
+		case'T':
+		case'U':
+		case'V':
+			second += 7;
+			break;
+		case'W':
+		case'X':
+		case'Y':
+		case'Z':
+			second += 8;
+			break;
+		}
+	}
+	cout << second;
+}
+
+void _11718()
+{
+	string s;
+	while (true)
+	{
+		getline(cin, s);
+		if (s == "\0")
+			break;
+		cout << s << endl;
+	}
+}
 
 int main()
 {
-	_2908();
+	_11718();
 	return 0;
 }
