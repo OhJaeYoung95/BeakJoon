@@ -108,8 +108,43 @@ void _10988()
 	cout << palindrome;
 }
 
+void _1157()
+{	// ¾ËÆÄºª 26°³
+	string s;
+	int count[26] = { 0 };
+	int countLen = sizeof(count) / sizeof(int);
+	int index = 0;
+	int same = 0;
+	cin >> s;
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] >= 'a' && s[i] <= 'z')
+		{
+			s[i] -= 'a';
+			count[(int)s[i]]++;
+		}
+		else if (s[i] >= 'A' && s[i] <= 'Z')
+		{
+			s[i] -= 'A';
+			count[(int)s[i]]++;
+		}
+	}
+
+	for (int i = 0; i < countLen; i++)
+	{
+		index = count[i] > count[index] ? i : index;
+		if (count[i] == count[index])
+			same = i;
+	}
+	if (same != 0 && count[same] > count[index])
+		cout << '?';
+	else
+		cout << (char)(index+'A');
+
+}
+
 int main()
 {
-	_10988();
+	_1157();
 	return 0;
 }
