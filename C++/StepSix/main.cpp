@@ -113,7 +113,7 @@ void _1157()
 	string s;
 	int count[26] = { 0 };
 	int countLen = sizeof(count) / sizeof(int);
-	int index = 0;
+	int index = 1;
 	int same = 0;
 	cin >> s;
 	for (int i = 0; i < s.length(); i++)
@@ -132,15 +132,18 @@ void _1157()
 
 	for (int i = 0; i < countLen; i++)
 	{
-		index = count[i] > count[index] ? i : index;
-		if (count[i] == count[index])
+		if (count[i] == count[index])		// 이상
 			same = i;
+		else if (count[index] > count[same])
+			same = 0;
+		index = count[i] > count[index] ? i : index;		// 큰수가 index에 갱신됨.
 	}
-	if (same != 0 && count[same] > count[index])
+	if (same != 0)
+	{
 		cout << '?';
+	}
 	else
-		cout << (char)(index+'A');
-
+		cout << (char)(index+'A') << "\n";
 }
 
 int main()
