@@ -93,7 +93,6 @@ void _2444_2()
 		cout << "\n";
 	}
 }
-
 void _10988()
 {
 	string s;
@@ -107,7 +106,6 @@ void _10988()
 
 	cout << palindrome;
 }
-
 void _1157()
 {	// ¾ËÆÄºª 26°³
 	string s;
@@ -153,9 +151,99 @@ void _1157()
 	else
 		cout << (char)(index + 'A') << "\n";
 }
+void _2941()
+{
+	// c=, c- , dz=, d-, lj, nj, s=, z=
+	string s;
+	int count = 0;
+	cin >>  s;
 
+	for (int i = 0; i < s.length(); i++)
+	{
+		if ((s[i] == '=' && s[i - 1] == 'c') ||
+			(s[i] == '-' && s[i - 1] == 'c') ||
+			(s[i] == '-' && s[i - 1] == 'd') ||
+			(s[i] == 'j' && s[i - 1] == 'l') ||
+			(s[i] == 'j' && s[i - 1] == 'n') ||
+			(s[i] == '=' && s[i - 1] == 's'))
+		{
+			count--;
+		}
+		else if (s[i] == '=' && s[i - 1] == 'z' && s[i - 2] == 'd')
+			count -= 2;
+		else if ((s[i] == '=' && s[i - 1] == 'z'))
+			count -= 1;
+		count++;
+	}
+
+	cout << count;
+}
+void _1316()
+{
+	string s;
+	int n;
+	int count[26] = { 0 };
+	int len = sizeof(count) / sizeof(int);
+	int sCheck = 0;
+	int groupWord = 0;
+
+	if (s.length() == 1)
+		count[(int)s[0]]++;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> s;
+		for (int i = 0; i < s.length(); i++)
+		{
+			if (s[i + 1] == s.length())
+				break;
+			if (s[i] != s[i + 1])
+			{
+				int index = (int)s[i] - 'a';
+				count[index]++;
+			}
+		}
+		for (int i = 0; i < len; i++)
+		{
+			if (count[i] == 0)
+				continue;
+			if (count[i] > 1)
+			{
+				sCheck = 1;
+				break;
+			}
+		}
+
+		if (sCheck == 0)
+		{
+			groupWord++;
+		}
+		sCheck = 0;
+		for (int i = 0; i < len; i++)
+		{
+			count[i] = 0;
+		}
+	}
+	cout << groupWord;
+}
+void _25206()
+{
+	string s;
+
+	for (int i = 0; i < 20; i++)
+	{
+		cin >> s;
+		for (int i = 0; i < s.length(); i++)
+		{
+			while (s[i] != ' ')
+			{
+
+			}
+		}
+	}
+}
 int main()
 {
-	_1157();
+	_25206();
 	return 0;
 }
